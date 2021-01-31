@@ -1,0 +1,82 @@
+            body {
+                margin: 0;
+                font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                background-color: #E5E5E5;
+            }
+            
+            #paragraph {
+                margin-top: 1em;
+                margin-bottom: 1em;
+                margin-right: 30px;
+            }
+            
+            .button {
+                border-radius: 65px;
+                background-color: #299BBF;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 18px;
+                padding: 10px;
+                width: 150px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+            
+            .button:hover {
+                box-shadow: 0px 15px 20px #299BBF;
+            }
+            
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+            
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            
+            .button:hover span {
+                padding-right: 15px;
+            }
+            
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+            
+            .container-flex {
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .container-flex>div {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .container-flex>div.slider {
+                height: 500px;
+                margin-top: 10rem;
+                margin-right: 10rem;
+            }
+            
+            img {
+                width: 551px;
+                height: 498px;
+            }
+            
+            .container-flex>div.main-info {
+                width: 30rem;
+                height: 400px;
+                margin-top: 20rem;
+                margin-left: 10rem
+            }
