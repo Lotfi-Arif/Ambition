@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: Login.php');
+    exit;
+} else {
+    // Show users the page!
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,16 +16,20 @@
     <title>れもん - Lemon</title>
     <link rel="stylesheet" href="../Style/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+<div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">れもん - Lemon</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,8 +45,8 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
+                        Dropdown
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Home</a>
                         <a class="dropdown-item" href="#">Another action</a>
@@ -43,8 +56,8 @@
                 </li>
             </ul>
             <ul class="navbar-nav float-right mr-3">
-                <a href="./Register.html" class="nav-link">Register</a>
-                <a href="./Login.html" class="nav-link">Login</a>
+                <a href="../Html/Register.php" class="nav-link">Register</a>
+                <a href="../Html/Login.php" class="nav-link">Login</a>
             </ul>
         </div>
     </nav>
@@ -66,7 +79,9 @@
 
 
 
-    <script src="../js/app.js"></script>
+    <script src="../js/app.js">
+
+    </script>
 </body>
 
 </html>

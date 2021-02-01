@@ -51,3 +51,7 @@ myInput.onkeyup = function() {
         length.classList.add("invalid");
     }
 }
+let myButton = document.getElementById("btn");
+myButton.addEventListener('click', function() {
+    document.location.href = '../Html/index.php';
+});

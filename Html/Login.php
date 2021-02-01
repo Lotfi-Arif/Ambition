@@ -1,3 +1,29 @@
+<?php 
+  session_start();
+  include('../php/config.php');
+  if (isset($_POST['login'])) {
+      $username = $_POST['username'];
+      $password = $_POST['psw'];
+      $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
+      $query->bindParam("username", $username, PDO::PARAM_STR);
+      $query->execute();
+      $result = $query->fetch(PDO::FETCH_ASSOC);
+      if (!$result) {
+          echo '<p class="error">Username password combination is wrong!</p>';
+      } else {
+          if (password_verify($password, $result['password'])) {
+              $_SESSION['username'] = $result['username'];
+              echo '<p class="success">Congratulations, you are logged in!</p>';
+              header('Location: index.php');
+          } else {
+              echo '<p class="error">Username password combination is wrong!</p>';
+          }
+      }
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +39,13 @@
 <body>
     <div class="container-flex">
 
-        <form class="form">
+        <form class="form" method="post" name="login-form">
+            <?php include('../Php/errors.php');?>
             <div class="imgcontainer">
                 <img src="../Resource/batman_hero_avatar_comics-512.png" alt="Avatar" class="avatar">
             </div>
             <div class="form__group">
-                <input type="text" placeholder="Username" class="form__input" />
+                <input type="text" name="username" placeholder="Username" class="form__input" />
             </div>
             <div class="form__group">
                 <input id="psw" type="password" placeholder="Enter Password" class="form__input" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
@@ -31,7 +58,7 @@
                 <p id="length" class="invalid">Minimum <strong>8 characters</strong></p>
                 </span>
 
-            <button class="btn" type="button">Register</button>
+            <button class="btn" id="btn" name="login" type="submit" type="button">Login</button>
             <span class="remember">
                 <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me

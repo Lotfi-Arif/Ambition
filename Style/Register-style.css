@@ -188,3 +188,20 @@ form:focus {
         background-position: 0 0
     }
 }
+
+p.success {
+    color: white;
+    font-family: lato;
+    background: yellowgreen;
+    display: inline-block;
+    padding: 2px 10px;
+}
+
+p.error {
+    background: orangered;
+    color: white;
+    font-family: lato;
+    background: yellowgreen;
+    display: inline-block;
+    padding: 2px 10px;
+}
