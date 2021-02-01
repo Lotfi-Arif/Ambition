@@ -12,40 +12,34 @@
 
 <body>
     <div class="container-flex">
-        <form action="/action_page.php" method="post">
+
+        <form class="form">
             <div class="imgcontainer">
                 <img src="../Resource/batman_hero_avatar_comics-512.png" alt="Avatar" class="avatar">
             </div>
-
-            <div class="container">
-                <label for="uname"><strong>Username :</strong></label>
-                <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
-                <br />
-                <label for="psw"><strong>Password :</strong></label>
-
-                <input id="psw" type="password" placeholder="Enter Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                <br />
-                <button type="submit">Login</button>
-                <br />
-                <span class="remember">
-                <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-                  </label>
-                </span>
-                <br />
-                <span class="psw">Forgot <a href="#">password?</a></span>
-                <span id="message">
+            <div class="form__group">
+                <input type="text" placeholder="Username" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input id="psw" type="password" placeholder="Enter Password" class="form__input" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    required>
+            </div>
+            <span id="message">
                 <p id="letter" class="invalid">A <strong>lowercase</strong> letter</p>
                 <p id="capital" class="invalid">A <strong>capital (uppercase)</strong> letter</p>
                 <p id="number" class="invalid">A <strong>number</strong></p>
                 <p id="length" class="invalid">Minimum <strong>8 characters</strong></p>
                 </span>
 
-            </div>
-
+            <button class="btn" type="button">Register</button>
+            <span class="remember">
+                <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+                </span>
         </form>
     </div>
 </body>
-<script src="../js/app.js"></script>
+<script src="../js/LoginValidation.js"></script>
 
 </html>

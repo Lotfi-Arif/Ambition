@@ -1,118 +1,189 @@
-    body {
-        font-family: 'Poppins', Arial, Helvetica, sans-serif;
-        text-align: center;
-    }
-    
-    form {
-        border: 3px solid #f1f1f1;
-        border-radius: 20%;
-        width: 700px;
-        max-width: 500px;
-        margin: auto;
-        background: white;
-        padding: 10px;
-    }
-    
-    input[type=text],
-    input[type=password] {
-        width: 50%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        align-items: center;
-        border-radius: 20px;
-    }
-    
-    button {
-        padding: 14px 20px;
-        margin: 8px 0;
-        margin-bottom: 20px;
-        border-radius: 100px;
-        position: inherit;
-        background-color: #299BBF;
-        border: none;
-        color: #FFFFFF;
-        text-align: center;
-        font-size: 18px;
-        width: 150px;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-    
-    button:hover {
-        box-shadow: 0px 15px 15px #299BBF;
-    }
-    
-    .imgcontainer {
-        text-align: center;
-        margin: 24px 0 12px 0;
-    }
-    
-    img.avatar {
-        width: 15em;
-        height: 15em;
-        border-radius: 50%;
-    }
-    
-    .container-flex {
-        padding: 16px;
-        text-align: center;
-    }
-    
-    span.psw {
-        text-align: center;
-        padding-top: 16px;
-    }
-    
-    .remember {
-        margin-top: 100px;
-    }
-    
-    #message {
-        display: none;
-        background: #ffffff;
-        color: #000;
-        position: relative;
-        padding: 20px;
-        margin-top: 10px;
-    }
-    
-    #message p {
-        padding: 10px 35px;
-        font-size: 18px;
-    }
-    /* Add a green text color and a checkmark when the requirements are right */
-    
-    .valid {
-        color: green;
-    }
-    
-    .valid:before {
-        position: relative;
-        left: -35px;
-        content: "✔";
-    }
-    /* Add a red text color and an "x" when the requirements are wrong */
-    
-    .invalid {
-        color: red;
-    }
-    
-    .invalid:before {
-        position: relative;
-        left: -35px;
-        content: "✖";
-    }
-    /* Change styles for span and cancel button on extra small screens */
-    
-    @media screen and (max-width: 300px) {
-        span.psw {
-            display: block;
-            float: none;
-        }
-        .cancelbtn {
-            width: 100%;
-        }
-    }
+     body {
+         font-family: 'Poppins', Arial, Helvetica, sans-serif;
+         text-align: center;
+         box-sizing: border-box;
+         font-size: 14px;
+         background-size: 200% 100% !important;
+         animation: move 10s ease infinite;
+         transform: translate3d(0, 0, 0);
+         background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+         height: 100vh
+     }
+     
+     .form {
+         margin-top: 40px;
+         border-radius: 50px;
+         overflow: hidden;
+         opacity: 0;
+         transform: translate3d(0, 500px, 0);
+         animation: arrive 500ms ease-in-out 0.9s forwards;
+         border: 3px solid #f1f1f1;
+         width: 700px;
+         max-width: 500px;
+         margin: auto;
+         background: white;
+         padding: 10px;
+     }
+     
+     .form__input {
+         display: block;
+         width: 100%;
+         padding: 20px;
+         -webkit-appearance: none;
+         border: 0;
+         outline: 0;
+         transition: 0.3s;
+     }
+     
+     input[type=text],
+     input[type=password] {
+         width: 50%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         display: inline-block;
+         border: 1px solid #ccc;
+         box-sizing: border-box;
+         align-items: center;
+         border-radius: 20px;
+     }
+     
+     .btn {
+         display: block;
+         width: 150px;
+         height: 50px;
+         padding: 20px;
+         -webkit-appearance: none;
+         outline: 0;
+         border: 0;
+         color: white;
+         background-color: #299BBF;
+         transition: 0.5s;
+         margin: 8px;
+         margin-left: 175px;
+         margin-bottom: 20px;
+         border-radius: 100px;
+         position: inherit;
+         font-size: 18px;
+         cursor: pointer;
+     }
+     
+     .btn:hover {
+         background: darken(#ABA194, 5%);
+         box-shadow: 0px 15px 15px #299BBF;
+     }
+     
+     .imgcontainer {
+         text-align: center;
+         margin: 24px 0 12px 0;
+     }
+     
+     img.avatar {
+         width: 13em;
+         height: 13em;
+         border-radius: 60%;
+     }
+     
+     .container-flex {
+         padding: 16px;
+         text-align: center;
+     }
+     
+     span.psw {
+         text-align: center;
+         padding-top: 16px;
+     }
+     
+     .remember {
+         margin-top: 100px;
+     }
+     
+     #message {
+         display: none;
+         background: #ffffff;
+         color: #000;
+         position: relative;
+         padding: 20px;
+         margin-top: 10px;
+     }
+     
+     #message p {
+         padding: 10px 35px;
+         font-size: 18px;
+     }
+     
+     .valid {
+         color: green;
+     }
+     
+     .valid:before {
+         position: relative;
+         left: -35px;
+         content: "✔";
+     }
+     
+     .invalid {
+         color: red;
+     }
+     
+     .invalid:before {
+         position: relative;
+         left: -35px;
+         content: "✖";
+     }
+     
+     @media screen and (max-width: 300px) {
+         span.psw {
+             display: block;
+             float: none;
+         }
+     }
+     
+     form:focus {
+         background: darken(#fff, 3%);
+     }
+     
+     @keyframes NO {
+         from,
+         to {
+             -webkit-transform: translate3d(0, 0, 0);
+             transform: translate3d(0, 0, 0);
+         }
+         10%,
+         30%,
+         50%,
+         70%,
+         90% {
+             -webkit-transform: translate3d(-10px, 0, 0);
+             transform: translate3d(-10px, 0, 0);
+         }
+         20%,
+         40%,
+         60%,
+         80% {
+             -webkit-transform: translate3d(10px, 0, 0);
+             transform: translate3d(10px, 0, 0);
+         }
+     }
+     
+     @keyframes arrive {
+         0% {
+             opacity: 0;
+             transform: translate3d(0, 50px, 0);
+         }
+         100% {
+             opacity: 1;
+             transform: translate3d(0, 0, 0);
+         }
+     }
+     
+     @keyframes move {
+         0% {
+             background-position: 0 0
+         }
+         50% {
+             background-position: 100% 0
+         }
+         100% {
+             background-position: 0 0
+         }
+     }
