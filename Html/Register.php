@@ -83,6 +83,9 @@ if (isset($_POST['register'])) {
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
             </span>
+            <div class="login">
+            <a href="../Html/Login.php">Already a member? Login here.</a>
+            </div>
         </form>
     </div>
     <script src="../js/RegisterValidation.js"></script>

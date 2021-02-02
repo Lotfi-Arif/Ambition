@@ -64,6 +64,10 @@
                 <input type="checkbox" checked="checked" name="remember"> Remember me
                   </label>
                 </span>
+            <div class="register">
+                <a href="../Html/Register.php">
+                Not a member? Sign Up.</a>
+            </div>
         </form>
     </div>
 </body>
