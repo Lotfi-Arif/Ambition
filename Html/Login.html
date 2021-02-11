@@ -1,29 +1,3 @@
-<?php 
-  session_start();
-  include('../php/config.php');
-  if (isset($_POST['login'])) {
-      $username = $_POST['username'];
-      $password = $_POST['psw'];
-      $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
-      $query->bindParam("username", $username, PDO::PARAM_STR);
-      $query->execute();
-      $result = $query->fetch(PDO::FETCH_ASSOC);
-      if (!$result) {
-          echo '<p class="error">Username password combination is wrong!</p>';
-      } else {
-          if (password_verify($password, $result['password'])) {
-              $_SESSION['username'] = $result['username'];
-              echo '<p class="success">Congratulations, you are logged in!</p>';
-              header('Location: index.php');
-          } else {
-              echo '<p class="error">Username password combination is wrong!</p>';
-          }
-      }
-  }
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +14,6 @@
     <div class="container-flex">
 
         <form class="form" method="post" name="login-form">
-            <?php include('../Php/errors.php');?>
             <div class="imgcontainer">
                 <img src="../Resource/batman_hero_avatar_comics-512.png" alt="Avatar" class="avatar">
             </div>
