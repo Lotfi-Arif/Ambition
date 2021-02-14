@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>れもん - Lemon</title>
-    <link rel="stylesheet" href="../Style/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <div class="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
@@ -22,8 +23,15 @@
                 <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Home</a></li>
                 <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Categories</a></li>
                 <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Contact</a></li>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit">Log Out</button>
+                </form>
             </ul>
         </nav>
+        <h1>Hi
+            <%= name %>
+        </h1>
+
         <div class="container-flex">
             <div class="main-info">
                 <h1 style="color: #299BBF;">$699</h1>
