@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login-style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-flex">
+        <% if (messages.error) { %>
+            <%= messages.error %>
+                <% } %>
+                    <form class="form" action="/login" method="POST" name="login-form">
+                        <div class="imgcontainer">
+                            <img src="../Resource/batman_hero_avatar_comics-512.png" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="form__group">
+                            <input type="text" name="username" placeholder="Username" class="form__input" />
+                        </div>
+                        <div class="form__group">
+                            <input id="psw" type="password" placeholder="Enter Password" class="form__input" name="password" required>
+                        </div>
+                        <span id="message">
+                <p id="letter" class="invalid">A <strong>lowercase</strong> letter</p>
+                <p id="capital" class="invalid">A <strong>capital (uppercase)</strong> letter</p>
+                <p id="number" class="invalid">A <strong>number</strong></p>
+                <p id="length" class="invalid">Minimum <strong>8 characters</strong></p>
+                </span>
+
+                        <button class="btn" id="btn" name="login" type="submit" type="button">Login</button>
+                        <span class="remember">
+                <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+                </span>
+                        <div class="register">
+                            <a href="/register">
+                Not a member? Sign Up.</a>
+                        </div>
+                    </form>
+    </div>
+</body>
+<script src="../js/LoginValidation.js"></script>
+
+</html>

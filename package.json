@@ -1,0 +1,37 @@
+{
+    "name": "Ambition",
+    "version": "1.0.0",
+    "description": "The main PHP folder is now deleted and we are switching to NPM and NodeJS.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "devStart": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lotfi-Arif/Ambition.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Lotfi-Arif/Ambition/issues"
+    },
+    "homepage": "https://github.com/Lotfi-Arif/Ambition#readme",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "express-ejs-layouts": "^2.5.0",
+        "express-flash": "0.0.2",
+        "express-session": "^1.17.1",
+        "method-override": "^3.0.0",
+        "mongoose": "^5.11.16",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "nodemon": "^2.0.7"
+    }
+}
