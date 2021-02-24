@@ -4,7 +4,7 @@
     "description": "The main PHP folder is now deleted and we are switching to NPM and NodeJS.",
     "main": "server.js",
     "scripts": {
-        "start": "nodemon server.js",
+        "start": "node server.js",
         "devStart": "NODE_ENV=development nodemon server.js"
     },
     "repository": {
