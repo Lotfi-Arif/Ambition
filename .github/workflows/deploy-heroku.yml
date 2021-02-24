@@ -14,4 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}} # TODO: Update as it expires Feb 2022
           heroku_app_name: "ambition99"
-          heroku_email: "abdulhakim.alsharif@hotmail.com"
+          heroku_email: "hakeemx06@gmail.com"
