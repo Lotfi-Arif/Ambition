@@ -38,7 +38,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 app.use('/', indexRouter)
-app.use('login', indexRouter)
+app.use('/login', indexRouter)
 app.use('/register', indexRouter)
 
 
