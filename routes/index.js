@@ -6,6 +6,7 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
+
 router.get('/', checkNotAuthenticated, (req, res) => {
     res.render('index.ejs')
 })
