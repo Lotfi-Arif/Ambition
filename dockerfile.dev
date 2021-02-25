@@ -17,4 +17,4 @@ COPY . .
 
 # Has to match with .env.development one
 EXPOSE 5000
-CMD [ "nodemon", "server.js" ]
+CMD [ "npm", "run", "devStart" ]
