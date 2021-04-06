@@ -7,17 +7,9 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
-// <<<<<<< docker-compose-docker-app
-// mongoose.connect(process.env.DATABASE_URL, {
-//     useNewUrlParser: true
-// })
-// const db = mongoose.connection
-// db.on('error', error => console.error(e))
-// db.once('open', () => console.log('Connected to Mongoose'))
 
 
-// =======
-// >>>>>>> main
+
 
 router.get('/', checkNotAuthenticated, (req, res) => {
     res.render('index.ejs')
