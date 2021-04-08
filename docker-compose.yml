@@ -6,10 +6,12 @@ services:
     restart: always
     hostname: ambition
     ports:
-      - 5000:5000
+      - 8080:5000
     build:
       context: .
       dockerfile: dockerFile.dev
+    volumes:
+      - ./server:/usr/src/app/server
     links:
       - mongo
   mongo:
