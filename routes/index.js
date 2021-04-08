@@ -3,16 +3,17 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const mongoose = require('mongoose')
-const flash = require('express-flash')
-const session = require('express-session')
-const methodOverride = require('method-override')
 
-
-
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true
+})
+const db = mongoose.connection
+db.on('error', error => console.error(error))
+db.once('open', () => console.log('Connected to Mongoose'))
 
 
 router.get('/', checkNotAuthenticated, (req, res) => {
-    res.render('index.ejs')
+    res.render('index')
 })
 
 router.get('/register', checkNotAuthenticated, (req, res) => {
