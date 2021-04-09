@@ -189,17 +189,6 @@
             .menu:hover .menu__link:not(:hover) {
                 --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
             }
-            /*
-              =====
-              PRESENTATION STYLES
-              =====
-              */
-            
-            .menu {
-                /* background-color: var(--menuBackgroundColor, #f0f0f0);
-                box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24)); */
-                
-            }
             
             .menu__list {
                 display: flex;
