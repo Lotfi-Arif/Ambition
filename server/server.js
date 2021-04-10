@@ -17,6 +17,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
+const userRouter = require('./routes/users')
 
 const initializePassport = require('./passport-config')
 initializePassport(
@@ -47,6 +48,7 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter)
 app.use('/login', indexRouter)
 app.use('/register', indexRouter)
+app.use('/users', userRouter)
 
 
 // app.get('/', checkAuthenticated, (req, res) => {
