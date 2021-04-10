@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 //new user route
 router.get('/new', (req, res) => {
-    res.get('Users/new')
+    res.render('Users/new')
 })
 
 //create user route
