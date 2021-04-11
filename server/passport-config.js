@@ -1,29 +1,16 @@
   const LocalStrategy = require('passport-local').Strategy
-  const bcrypt = require('bcrypt')
+  const passport = require('passport')
+  const User = require("./models/User");
 
-  function initialize(passport, getUserByUsername, getUserById) {
-      const authenticateUser = async(username, password, done) => {
-          const user = getUserByUsername(username)
-          if (user == null) {
-              return done(null, false, { message: 'No user with that username' })
-          }
-
-          try {
-              if (await bcrypt.compare(password, user.password)) {
-                  return done(null, user)
-              } else {
-                  return done(null, false, { message: 'Password incorrect' })
-              }
-          } catch (e) {
-              return done(e)
-          }
-      }
-
-      passport.use(new LocalStrategy({ usernameField: 'username' }, authenticateUser))
-      passport.serializeUser((user, done) => done(null, user.id))
-      passport.deserializeUser((id, done) => {
-          return done(null, getUserById(id))
-      })
+  if (process.env.NODE_ENV) {
+      require("dotenv").config({
+          path: `${__dirname}/.env.${process.env.NODE_ENV}`,
+      });
+  } else {
+      require("dotenv").config();
   }
 
-  module.exports = initialize
+
+  passport.serializeUser(User.serializeUser()); //session encoding
+  passport.deserializeUser(User.deserializeUser()); //session decoding
+  passport.use(new LocalStrategy(User.authenticate()));

@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const bcrypt = require('bcrypt')
 const passport = require('passport')
 const mongoose = require('mongoose')
+const initializePassport = require('../passport-config')
+const User = require("../models/User");
 
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true
@@ -12,61 +13,57 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 
-router.get('/', checkNotAuthenticated, (req, res) => {
+
+//=======================
+//      R O U T E S
+//=======================
+
+router.get('/', (req, res) => {
     res.render('index')
 })
 
-router.get('/register', checkNotAuthenticated, (req, res) => {
+router.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
-router.get('/login', checkNotAuthenticated, (req, res) => {
+router.get('/login', (req, res) => {
     res.render('login.ejs')
 })
 
-router.post('/register', checkNotAuthenticated, async(req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            username: req.body.username,
-            fullname: req.body.fullname,
-            email: req.body.email,
-            password: hashedPassword,
-            address: req.body.address,
-            phoneNo: req.body.phoneNo
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login"
+}), function(req, res) {});
+
+router.post("/register", (req, res) => {
+
+    User.register(new User({
+        username: req.body.username,
+        fullname: req.body.fullname,
+        email: req.body.email,
+        phoneNo: req.body.phoneNo,
+        address: req.body.address
+    }), req.body.password, function(err, user) {
+        if (err) {
+            console.log(err);
+            res.render("register");
+        }
+        passport.authenticate("local")(req, res, function() {
+            res.redirect("/login");
         })
-        res.redirect('/login')
-    } catch {
-        res.redirect('/register')
-        alert("there may have been an error")
-    }
-    console.log(users)
+    })
 })
-router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-}))
 
 router.delete('/logout', (req, res) => {
     req.logOut()
     res.redirect('/login')
 })
 
-function checkAuthenticated(req, res, next) {
+function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-        return next()
+        return next();
     }
-
-    res.redirect('/login')
-}
-
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/')
-    }
-    next()
+    res.redirect("/login");
 }
 
 module.exports = router
